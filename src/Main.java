@@ -24,7 +24,7 @@ public class Main extends JPanel implements KeyListener {
     private int score;
     private int highest_score;
     String desktop = System.getProperty("user.home") + "/Desktop/";
-    String myFile = desktop + "filename.TXT";
+    String myFile = desktop + "filename.txt";
 
     public Main() {
         read_highest_score();
