@@ -23,6 +23,8 @@ public class Main extends JPanel implements KeyListener {
     private boolean allowKeyPress;
     private int score;
     private int highest_score;
+    String desktop = System.getProperty("user.home") + "/Desktop/";
+    String myFile = desktop + "filename.txt";
 
     public Main() {
         read_highest_score();
@@ -155,14 +157,14 @@ public class Main extends JPanel implements KeyListener {
 
     public void read_highest_score() {
         try {
-            File myObj = new File("filename.txt");
+            File myObj = new File(myFile);
             Scanner myReader = new Scanner(myObj);
             highest_score = myReader.nextInt();
             myReader.close();
         } catch (FileNotFoundException e) {
             highest_score = 0;
             try {
-                File myObj = new File("filename.txt");
+                File myObj = new File(myFile);
                 if (myObj.createNewFile()) {
                     System.out.println("File create: " + myObj.getName());
                 }
@@ -177,7 +179,7 @@ public class Main extends JPanel implements KeyListener {
 
     public void write_a_file() {
         try {
-            FileWriter myWriter = new FileWriter("filename.txt");
+            FileWriter myWriter = new FileWriter(myFile);
             if (score > highest_score) {
                 System.out.println("rewriting score...");
                 myWriter.write("" + score);
