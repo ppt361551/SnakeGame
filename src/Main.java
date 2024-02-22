@@ -159,7 +159,11 @@ public class Main extends JPanel implements KeyListener {
         try {
             File myObj = new File(myFile);
             Scanner myReader = new Scanner(myObj);
-            highest_score = myReader.nextInt();
+            if (!myReader.hasNext()) {
+                highest_score = 0;
+            } else {
+                highest_score = myReader.nextInt();
+            }
             myReader.close();
         } catch (FileNotFoundException e) {
             highest_score = 0;
